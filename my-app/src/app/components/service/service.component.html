@@ -1,0 +1,30 @@
+<!-- src/app/service/service.component.html -->
+<div class="service-list">
+  <h2>Services</h2>
+  <ul>
+    <li *ngFor="let service of services">
+      {{ service.name }} - {{ service.price }}€
+      <button (click)="deleteService(service.serviceId)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<div class="create-service-form">
+  <h2>Créer un nouveau service</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="name">Nom:</label>
+    <input type="text" id="name" [(ngModel)]="newService.name" name="name" required />
+
+    <label for="price">Prix:</label>
+    <input type="number" id="price" [(ngModel)]="newService.price" name="price" required />
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" [(ngModel)]="newService.description" name="description" required />
+
+    <label for="duration">Durée:</label>
+    <input type="text" id="duration" [(ngModel)]="newService.duration" name="duration" required />
+
+    <button type="submit">Créer</button>
+  </form>
+</div>
+

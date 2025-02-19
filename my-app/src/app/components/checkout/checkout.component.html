@@ -1,0 +1,46 @@
+<div class="payment-container">
+  <h3 class="title">Paiement sécurisé</h3>
+  <div class="amount">Total à payer: {{ amount | currency:'EUR' }}</div>
+
+  <div class="cart-summary">
+    <h4>Résumé de la commande</h4>
+    @for (item of cartItems; track item.id) {
+      <div class="cart-item-summary">
+        <span>{{ item.product.name }} x{{ item.quantity }}</span>
+        <span>
+          @if (hasActivePromotion(item)) {
+            <span class="original-price">{{ item.product.price | currency:'EUR' }}</span>
+            <span class="discount-price">{{ calculateDiscountedPrice(item) | currency:'EUR' }}</span>
+          } @else {
+            {{ item.product.price | currency:'EUR' }}
+          }
+        </span>
+      </div>
+    }
+    
+    <div class="total-line">
+      <strong>Total:</strong>
+      <span>{{ amount | currency:'EUR' }}</span>
+    </div>
+  </div>
+
+  <!-- Boutons de paiement -->
+  <div class="payment-methods">
+    <app-paypal-button 
+      [amount]="amount"
+      (onPaymentSuccess)="handlePaymentSuccess($event)"
+    ></app-paypal-button>
+
+    <button class="btn bancontact" (click)="payWithBancontact()">
+      Payer avec Bancontact
+    </button>
+
+    <button class="btn card" (click)="payWithCard()">
+      Payer par Carte
+    </button>
+
+    <button routerLink="/client/cart" class="btn secondary">
+      Retour au panier
+    </button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div>
+  <h2>Créer une Promotion</h2>
+  <form (ngSubmit)="createPromotion()">
+    <div>
+      <label>Description:</label>
+      <input [(ngModel)]="description" name="description" required>
+    </div>
+    <div>
+      <label>Date de début:</label>
+      <input [(ngModel)]="startDate" type="date" name="startDate" required>
+    </div>
+    <div>
+      <label>Date de fin:</label>
+      <input [(ngModel)]="endDate" type="date" name="endDate" required>
+    </div>
+    <div>
+      <label>Pourcentage de remise:</label>
+      <input [(ngModel)]="discountPercentage" type="number" name="discountPercentage" required>
+    </div>
+    <button type="submit">Créer Promotion</button>
+  </form>
+  <div *ngIf="successMessage">{{ successMessage }}</div>
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>

@@ -1,0 +1,76 @@
+<div class="cart-container">
+  <!-- Titre principal de la section panier -->
+  <h2>Mon Panier</h2>
+
+  <!-- Affiche un message lorsque le panier est vide -->
+  <div *ngIf="items.length === 0" class="empty-cart">
+    Votre panier est vide
+  </div>
+
+  <!-- Affiche les articles du panier si le panier n'est pas vide -->
+  <div *ngIf="items.length > 0" class="cart-items">
+    <!-- Parcourt les articles du panier -->
+    <div *ngFor="let item of items" class="cart-item">
+      <div class="item-info">
+        <!-- Nom du produit -->
+        <h3>{{ item.product.name }}</h3>
+
+        <!-- Gestion des prix et promotions -->
+        <div class="price-container">
+          <!-- Si une promotion est active, affiche le prix original barré et le prix promotionnel -->
+          <ng-container *ngIf="hasActivePromotion(item)">
+            <span class="original-price">{{ item.product.price | currency:'EUR' }}</span>
+            <span class="promo-price">{{ getItemPrice(item) | currency:'EUR' }}</span>
+            <span class="discount">(-{{item.product.promotion?.discountPercentage}}%)</span>
+          </ng-container>
+
+          <!-- Si aucune promotion n'est active, affiche uniquement le prix normal -->
+          <ng-container *ngIf="!hasActivePromotion(item)">
+            <span class="price">{{ item.product.price | currency:'EUR' }}</span>
+          </ng-container>
+        </div>
+
+        <!-- Contrôles pour modifier la quantité de l'article -->
+        <div class="quantity-controls">
+          <!-- Bouton pour diminuer la quantité, désactivé si la quantité est égale à 1 -->
+          <button
+            (click)="decrementQuantity(item)"
+            [disabled]="item.quantity <= 1"
+            class="quantity-btn"
+          >
+            -
+          </button>
+          <!-- Affiche la quantité actuelle -->
+          <span class="quantity">{{ item.quantity }}</span>
+          <!-- Bouton pour augmenter la quantité, désactivé si le stock maximal est atteint -->
+          <button
+            (click)="incrementQuantity(item)"
+            [disabled]="item.quantity >= item.product.stock"
+            class="quantity-btn"
+          >
+            +
+          </button>
+        </div>
+
+        <!-- Sous-total pour cet article -->
+        <p>Sous-total: {{ getSubTotal(item) | currency:'EUR' }}</p>
+      </div>
+
+      <!-- Bouton pour supprimer cet article du panier -->
+      <button (click)="removeItem(item)" class="remove-btn">Supprimer</button>
+    </div>
+
+    <!-- Résumé du panier -->
+    <div class="cart-summary">
+      <!-- Montant total du panier -->
+      <p class="total">Total: {{ total | currency:'EUR' }}</p>
+      <!-- Actions liées au panier -->
+      <div class="cart-actions">
+        <!-- Bouton pour vider complètement le panier -->
+        <button (click)="clearCart()" class="clear-btn">Vider le panier</button>
+        <!-- Bouton pour passer à l'étape de paiement -->
+        <button (click)="proceedToCheckout()" class="checkout-btn">Commander</button>
+      </div>
+    </div>
+  </div>
+</div>

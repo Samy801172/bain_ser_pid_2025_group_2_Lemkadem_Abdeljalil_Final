@@ -1,0 +1,30 @@
+
+<header></header>
+<section id="wrapper">
+  <div id="logo">
+    <img src="assets/icon.png" alt="Icon">
+    <h1>{{title}}</h1>
+  </div>
+ <div class= "error" *ngIf ="errors$ | async as errors">
+   @for (error of errorsSignal$(); let index=$index; track index){
+     <p> {{error | json }}</p>
+  }
+
+  <div class="form-area">
+    @for (input of config; let last=$last; let index=$index; track index) {
+
+        <app-float-label-input [config]="input"></app-float-label-input>
+        @if (last){
+          <div class="icon" (click)="validateForm()" [class.disabled] ="formGroup.invalid">
+            <i [class]="icon"></i>
+          </div>
+        }
+
+      @if(!last){
+        <div class="separator"></div>}
+    }
+
+  </div>
+  </div>
+</section>
+

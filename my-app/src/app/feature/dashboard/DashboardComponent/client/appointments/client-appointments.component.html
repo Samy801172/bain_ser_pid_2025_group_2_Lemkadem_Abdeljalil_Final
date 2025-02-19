@@ -1,0 +1,95 @@
+<!-- feature/Dashboard/DashboardComponent/client/appointments/client-appointments.component.html -->
+<div class="appointments-container">
+  <div class="appointments-header">
+    <h2>Mes Rendez-vous</h2>
+    <button class="new-appointment-button" (click)="openNewAppointmentModal()">
+      Nouveau Rendez-vous
+    </button>
+  </div>
+
+  @if (appointments.length === 0) {
+  <div class="no-appointments">
+    <p>Vous n'avez aucun rendez-vous programmé.</p>
+  </div>
+  } @else {
+  <div class="appointments-list">
+    @for (appointment of appointments; track appointment.id) {
+  <div class="appointment-card" [ngClass]="appointment.status.toLowerCase()">
+    <div class="appointment-header">
+      <div class="appointment-date">
+        <i class="fas fa-calendar"></i>
+        {{appointment.date | date:'dd/MM/yyyy'}} à {{appointment.time}}
+      </div>
+      <div class="appointment-status">
+        {{appointment.status}}
+      </div>
+    </div>
+
+    <div class="appointment-details">
+      <div class="service-info">
+        <h4>Service réservé</h4>
+        <p>{{appointment.serviceName}}</p>
+      </div>
+
+      @if (appointment.status === 'PENDING') {
+      <div class="appointment-actions">
+        <button class="cancel-button" (click)="cancelAppointment(appointment.id)">
+          Annuler
+        </button>
+        <button class="reschedule-button" (click)="openRescheduleModal(appointment)">
+          Reprogrammer
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+  }
+  </div>
+  }
+</div>
+
+<!-- Modal pour nouveau rendez-vous -->
+@if (showNewAppointmentModal) {
+<div class="modal">
+<div class="modal-content">
+<h3>Nouveau Rendez-vous</h3>
+<form (ngSubmit)="createAppointment()">
+<div class="form-group">
+<label for="service">Service</label>
+<select id="service" [(ngModel)]="newAppointment.serviceId" name="service" required>
+@for (service of services; track service.id) {
+<option [value]="service.id">{{service.name}}</option>
+}
+</select>
+</div>
+
+<div class="form-group">
+<label for="date">Date</label>
+<input
+type="date"
+id="date"
+[(ngModel)]="newAppointment.date"
+name="date"
+required
+>
+</div>
+
+<div class="form-group">
+<label for="time">Heure</label>
+<select id="time" [(ngModel)]="newAppointment.time" name="time" required>
+@for (slot of availableTimeSlots; track slot) {
+<option [value]="slot">{{slot}}</option>
+}
+</select>
+</div>
+
+<div class="form-actions">
+<button type="submit">Confirmer</button>
+<button type="button" (click)="showNewAppointmentModal = false">
+Annuler
+</button>
+</div>
+</form>
+</div>
+</div>
+}

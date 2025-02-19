@@ -1,0 +1,44 @@
+<!-- admin-dashboard.component.html -->
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="assets/logo-izzybeauty.png" alt="IzzyBeauty Logo" class="logo">
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li>
+          <a routerLink="products" routerLinkActive="active">
+            <i class="fas fa-box"></i> Produits
+          </a>
+        </li>
+        <li>
+          <a routerLink="appointments" routerLinkActive="active">
+            <i class="fas fa-calendar"></i> Rendez-vous
+          </a>
+        </li>
+        <li>
+          <a routerLink="clients" routerLinkActive="active">
+            <i class="fas fa-users"></i> Clients
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-bar">
+      <h1>Administration IzzyBeauty</h1>
+      <div class="user-menu">
+        <span>Admin</span>
+        <button class="logout-btn" (click)="logout()">Déconnexion</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

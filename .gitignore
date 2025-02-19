@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# API
+/api/
+/api/**/*
+
+# Mobile
+/gohan_medic_mobile/
+/gohan_medic_mobile/**/*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build
+/dist/
+/tmp/
+/out-tsc/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Uploads
+/uploads/
+**/uploads/** 

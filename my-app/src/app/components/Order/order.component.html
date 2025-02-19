@@ -1,0 +1,53 @@
+<div>
+  <h1>Mes Commandes</h1>
+  <div *ngIf="orders$ | async as orders; else loadingTemplate">
+    <div *ngIf="orders.length > 0; else noOrdersTemplate">
+      <ul>
+        <li *ngFor="let order of orders">
+          Commande ID: {{ order.id }} - Date: {{ order.date | date }} - Total: {{ order.total | currency }}
+          <!-- Affichez d'autres détails de la commande selon vos besoins -->
+        </li>
+      </ul>
+    </div>
+    <ng-template #noOrdersTemplate>
+      <p>Aucune commande trouvée.</p>
+    </ng-template>
+  </div>
+  <ng-template #loadingTemplate>
+    <p>Chargement des commandes...</p>
+  </ng-template>
+  <ng-template #errorTemplate>
+    <p>Une erreur est survenue lors du chargement des commandes.</p>
+  </ng-template>
+
+  <h2>Passer une Nouvelle Commande</h2>
+
+  <form (ngSubmit)="passOrder()" #orderForm="ngForm">
+    <div>
+      <label for="clientId">ID Client:</label>
+      <input type="number" id="clientId" [(ngModel)]="newOrder.clientId" name="clientId" required>
+    </div>
+
+    <div>
+      <h3>Lignes de Commande:</h3>
+      <div *ngFor="let orderLine of newOrder.orderLines; let i = index">
+        <div>
+          <label for="productId{{i}}">Produit ID:</label>
+          <input type="number" id="productId{{i}}" [(ngModel)]="orderLine.productId" name="productId{{i}}" required>
+        </div>
+        <div>
+          <label for="quantity{{i}}">Quantité:</label>
+          <input type="number" id="quantity{{i}}" [(ngModel)]="orderLine.quantity" name="quantity{{i}}" required>
+        </div>
+        <div>
+          <label for="price{{i}}">Prix:</label>
+          <input type="number" id="price{{i}}" [(ngModel)]="orderLine.price" name="price{{i}}" required>
+        </div>
+        <button type="button" (click)="removeOrderLine(i)">Supprimer</button>
+      </div>
+      <button type="button" (click)="addOrderLine()">Ajouter une Ligne</button>
+    </div>
+
+    <button type="submit">Passer Commande</button>
+  </form>
+</div>

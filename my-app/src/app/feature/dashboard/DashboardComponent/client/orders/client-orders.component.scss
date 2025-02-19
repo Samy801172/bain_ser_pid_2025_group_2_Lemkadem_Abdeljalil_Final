@@ -1,0 +1,101 @@
+// client-orders.component.scss
+.orders-container {
+  padding: 1.5rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.no-orders {
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  color: #6b7280;
+}
+
+.order-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.order-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-info {
+  .order-number {
+    font-weight: 600;
+  }
+
+  .order-date {
+    margin-left: 1rem;
+    color: #6b7280;
+  }
+}
+
+.order-status {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &.pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  &.processing {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  &.delivered {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  &.cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+}
+
+.order-products {
+  padding: 1rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      font-weight: 500;
+      color: #4b5563;
+      background: #f9fafb;
+    }
+
+    tfoot {
+      font-weight: 600;
+
+      td {
+        border-top: 2px solid #e5e7eb;
+      }
+    }
+  }
+}

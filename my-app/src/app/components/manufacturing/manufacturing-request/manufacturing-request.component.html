@@ -1,0 +1,96 @@
+<div class="manufacturing-form">
+  <!-- Titre du formulaire -->
+  <h2>Demande de Fabrication sur Mesure</h2>
+
+  <!-- Formulaire réactif pour la demande de fabrication -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <!-- Champ pour sélectionner le type de médicament -->
+    <div class="form-group">
+      <label for="type">Type de médicament*</label>
+      <select id="type" formControlName="type" class="form-control">
+        <option value="">Sélectionnez un type</option>
+        <option value="capsules">Gélules</option>
+        <option value="cream">Crème</option>
+      </select>
+      <!-- Message d'erreur si le champ est requis et non rempli -->
+      <div *ngIf="form.get('type')?.touched && form.get('type')?.invalid" class="error-message">
+        Type de médicament requis
+      </div>
+    </div>
+
+    <!-- Champ pour entrer le nom du médecin -->
+    <div class="form-group">
+      <label for="doctorName">Nom du Médecin*</label>
+      <input
+        id="doctorName"
+        type="text"
+        formControlName="doctorName"
+        class="form-control"
+        placeholder="Dr. Nom du médecin">
+      <!-- Message d'erreur si le champ est requis et non rempli -->
+      <div *ngIf="form.get('doctorName')?.touched && form.get('doctorName')?.invalid" class="error-message">
+        Nom du médecin requis
+      </div>
+    </div>
+
+    <!-- Champ pour décrire le besoin -->
+    <div class="form-group">
+      <label for="description">Description*</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+        placeholder="Description détaillée de la préparation"
+        rows="4">
+      </textarea>
+      <!-- Message d'erreur si le champ est requis et non rempli -->
+      <div *ngIf="form.get('description')?.touched && form.get('description')?.invalid" class="error-message">
+        Description requise
+      </div>
+    </div>
+
+    <!-- Champ optionnel pour des instructions supplémentaires -->
+    <div class="form-group">
+      <label for="instructions">Instructions supplémentaires</label>
+      <textarea
+        id="instructions"
+        formControlName="instructions"
+        class="form-control"
+        placeholder="Instructions spécifiques (optionnel)"
+        rows="3">
+      </textarea>
+    </div>
+
+    <!-- Champ pour télécharger une ordonnance -->
+    <div class="form-group">
+      <label for="prescriptionFile">Ordonnance* (PDF ou Image)</label>
+      <div class="file-upload">
+        <input
+          type="file"
+          id="prescriptionFile"
+          (change)="onFileSelected($event)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          class="form-control">
+        <!-- Affiche le nom du fichier sélectionné -->
+        <div *ngIf="prescriptionFile" class="file-name">
+          {{ prescriptionFile.name }}
+        </div>
+      </div>
+      <!-- Message d'erreur si aucun fichier n'est sélectionné -->
+      <div *ngIf="!prescriptionFile && form.touched" class="error-message">
+        Ordonnance requise
+      </div>
+    </div>
+
+    <!-- Bouton de soumission du formulaire -->
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="!form.valid || !prescriptionFile"
+        class="btn btn-primary">
+        Soumettre la demande
+      </button>
+    </div>
+  </form>
+</div>

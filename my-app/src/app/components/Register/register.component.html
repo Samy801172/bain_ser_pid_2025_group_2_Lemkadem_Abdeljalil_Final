@@ -1,0 +1,77 @@
+<!-- register.component.html -->
+<div class="register-container">
+  <div class="register-box">
+    <div class="logo-container">
+      <img ngSrc="assets/GOHAN-MED.jpg" alt="GOHAN-MED Logo" class="logo" height="1024" width="1024">
+    </div>
+    <div class="register-header">
+      <h2>Créer un compte</h2>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          [(ngModel)]="user.username"
+          required
+          placeholder="Votre nom d'utilisateur"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="mail">Email</label>
+        <input
+          id="mail"
+          name="mail"
+          type="email"
+          [(ngModel)]="user.mail"
+          required
+          placeholder="Votre adresse email"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [(ngModel)]="user.password"
+          required
+          placeholder="Votre mot de passe"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmer le mot de passe</label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          [(ngModel)]="user.confirmPassword"
+          required
+          placeholder="Confirmer votre mot de passe"
+        >
+      </div>
+
+      @if (error) {
+      <div class="error-message">
+      {{ error }}
+      </div>
+      }
+
+      <div class="form-actions">
+        <button type="submit" class="register-button">
+          S'inscrire
+        </button>
+      </div>
+    </form>
+
+    <div class="login-link">
+      <a href="/login">Déjà un compte ? Se connecter</a>
+    </div>
+  </div>
+</div>

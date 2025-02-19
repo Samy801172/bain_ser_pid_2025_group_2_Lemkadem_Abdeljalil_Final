@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        working-directory: ./my-app
+        run: npm install
+        
+      - name: Build
+        working-directory: ./my-app
+        run: npm run build -- --configuration production --base-href=/bain_ser_pid_2025_group_2_Lemkadem_Abdeljalil_Final/
+        
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: my-app/dist/app/browser

@@ -1,0 +1,48 @@
+<!-- client-orders.component.html -->
+<div class="orders-container">
+  <!-- Loading state -->
+  @if (loading) {
+    <div class="loading">Chargement des commandes...</div>
+  }
+
+  <!-- Error state -->
+  @if (error) {
+    <div class="error-message">{{ error }}</div>
+  }
+
+  <!-- Orders list -->
+  @if (!loading && !error) {
+    @if (orders.length === 0) {
+      <div class="no-orders">Vous n'avez pas encore de commandes</div>
+    } @else {
+      @for (order of orders; track order.orderId) {
+        <div class="order-card">
+          <div class="order-header">
+            <span class="order-number">Commande #{{ order.orderId }}</span>
+            <span class="order-date">{{ order.date | date:'dd/MM/yyyy' }}</span>
+            <span [class]="getStatusClass(order.status)">
+              {{ getStatusLabel(order.status) }}
+            </span>
+          </div>
+
+          <div class="order-products">
+            @for (product of order.products; track product.productId) {
+              <div class="product-item">
+                <span class="product-name">{{ product.name }}</span>
+                <span class="product-quantity">x{{ product.quantity }}</span>
+                <span class="product-price">{{ product.price | currency:'EUR' }}</span>
+                <span class="product-total">{{ product.quantity * product.price | currency:'EUR' }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="order-footer">
+            <span class="order-total">
+              Total: {{ calculateOrderTotal(order) | currency:'EUR' }}
+            </span>
+          </div>
+        </div>
+      }
+    }
+  }
+</div>

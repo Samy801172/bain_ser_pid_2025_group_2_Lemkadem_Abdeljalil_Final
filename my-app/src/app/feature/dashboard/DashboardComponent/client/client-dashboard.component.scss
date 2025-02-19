@@ -1,0 +1,86 @@
+.main-nav {
+  background: #4f46e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .logo {
+    height: 40px; /* Ajustez cette valeur pour la taille du logo */
+    width: auto;
+  }
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #f5f6fa;
+}
+
+.button-blue {
+  background-color: #4f46e5; /* Bleu */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #3b82f6; /* Bleu plus clair au survol */
+  }
+
+  &:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+}
+
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    height: 200px; /* Taille ajustée de l'image */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .product-info {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #1f2937;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #4f46e5;
+      margin-top: 0.5rem;
+    }
+
+    .add-to-cart-btn {
+      margin-top: 1rem;
+      width: 100%;
+      background-color: #4f46e5;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4338ca;
+      }
+
+      &:disabled {
+        background-color: #9ca3af;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

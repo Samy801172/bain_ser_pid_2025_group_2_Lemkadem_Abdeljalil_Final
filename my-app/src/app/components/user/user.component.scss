@@ -1,0 +1,22 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  width: 100%;
+}

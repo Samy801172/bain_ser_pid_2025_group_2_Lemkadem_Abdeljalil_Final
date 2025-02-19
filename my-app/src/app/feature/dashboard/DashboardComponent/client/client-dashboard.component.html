@@ -1,0 +1,38 @@
+<nav class="main-nav bg-indigo-600 fixed top-0 w-full z-50">
+  <div class="container mx-auto flex items-center justify-between h-12 px-4">
+    <!-- Logo et Titre -->
+    <div class="flex items-center">
+      <img src="assets/logo-izzybeauty.png" alt="IzzyBeauty" class="logo h-6 w-auto mr-2">
+      <span class="text-white font-semibold text-sm">Espace Client</span>
+    </div>
+    <!-- Navigation -->
+    <div class="flex items-center space-x-4 text-white">
+      <a routerLink="/client/products" routerLinkActive="border-b-2" class="nav-link">Nos Produits</a>
+      <a routerLink="/client/rendez-vous" routerLinkActive="border-b-2" class="nav-link">Mes Rendez-vous</a>
+      <a routerLink="/client/panier" routerLinkActive="border-b-2" class="nav-link relative">
+        Mon Panier
+        <span *ngIf="cartItemCount > 0" class="badge">
+          {{ cartItemCount }}
+        </span>
+      </a>
+      <a routerLink="/client/commandes" routerLinkActive="border-b-2" class="nav-link">Mes Commandes</a>
+      <a routerLink="/client/profile" routerLinkActive="border-b-2" class="nav-link">Mon Profil</a>
+      <button (click)="logout()" class="btn-logout">Déconnexion</button>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-16">
+  <div class="breadcrumb bg-gray-100 border-b">
+    <div class="container mx-auto py-2 px-4">
+      <div class="text-sm text-gray-600">
+        <a routerLink="/client" class="hover:text-indigo-600">Accueil</a>
+        <span class="mx-2">/</span>
+        <span>{{ getCurrentPage() }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto px-4 py-6">
+    <router-outlet></router-outlet>
+  </div>
+</main>

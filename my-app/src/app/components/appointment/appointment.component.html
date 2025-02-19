@@ -1,0 +1,15 @@
+<div class="appointments-container">
+  @if (appointments.length > 0) {
+    <h2>Liste des Rendez-vous</h2>
+    <div class="appointments-list">
+      @for (appointment of appointments; track appointment.appointmentId) {
+        <div class="appointment-item">
+          {{ appointment.appointmentDate | date }} à {{ appointment.time }}
+          - Service: {{ appointment.service?.name }}
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="no-data">Aucun rendez-vous trouvé.</p>
+  }
+</div>

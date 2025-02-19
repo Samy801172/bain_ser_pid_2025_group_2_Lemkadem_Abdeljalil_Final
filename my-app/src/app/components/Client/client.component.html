@@ -1,0 +1,18 @@
+<div class="client-container">
+  <h2>Inscription</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+    <input formControlName="name" placeholder="Nom" required>
+    <input formControlName="email" placeholder="Email" required>
+    <input type="password" formControlName="password" placeholder="Mot de passe" required>
+    <button type="submit">S'inscrire</button>
+  </form>
+
+  <h2>Connexion</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input formControlName="email" placeholder="Email" required>
+    <input type="password" formControlName="password" placeholder="Mot de passe" required>
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>  <!-- Message de succès -->
+</div>

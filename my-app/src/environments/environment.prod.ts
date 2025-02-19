@@ -1,7 +1,7 @@
 // Ajouter dans environment.prod.ts
 export const environment = {
   production: true,
-  apiUrl: 'https://votre-api-production.com/api',  // À adapter selon votre backend
+  apiUrl: 'http://localhost:2024/api',  // Gardez cette URL si votre API est locale
   paypalClientId: 'AYu0FhU6VKkIsk_x3DYp3ZDBn57Z0JnrYQJShGFcg3DRIquZzZIv0kBEiHw1dNKx2-enGPHWzyfUEtwM',
   paypalMode: 'sandbox',
   endpoints: {

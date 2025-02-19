@@ -1,0 +1,55 @@
+<!-- feature/Dashboard/DashboardComponent/admin/appointments/admin-appointments.component.html -->
+<div class="admin-appointments">
+  <div class="header">
+    <h2>Gestion des Rendez-vous</h2>
+    <div class="filters">
+      <select [(ngModel)]="statusFilter" (change)="filterAppointments()">
+        <option value="">Tous les statuts</option>
+        <option value="pending">En attente</option>
+        <option value="confirmed">Confirmé</option>
+        <option value="cancelled">Annulé</option>
+      </select>
+      <input
+        type="date"
+        [(ngModel)]="dateFilter"
+        (change)="filterAppointments()"
+      >
+    </div>
+  </div>
+
+  <div class="appointments-list">
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Client</th>
+        <th>Service</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      @for (appointment of appointments; track appointment.appointmentId) {
+      <tr>
+        <td>{{appointment.appointmentDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{appointment.time}}</td>
+            <td>{{appointment.client.firstName}} {{appointment.client.lastName}}</td>
+            <td>{{appointment.service.name}}</td>
+            <td>
+              <span class="status" [class]="appointment.status">
+      {{appointment.status}}
+      </span>
+    </td>
+    <td class="actions">
+      <button (click)="updateStatus(appointment.appointmentId, 'confirmed')"
+              class="confirm-btn">Confirmer</button>
+      <button (click)="updateStatus(appointment.appointmentId, 'cancelled')"
+              class="cancel-btn">Annuler</button>
+    </td>
+  </tr>
+      }
+      </tbody>
+    </table>
+  </div>
+</div>

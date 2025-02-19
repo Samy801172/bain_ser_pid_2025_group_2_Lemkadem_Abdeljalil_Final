@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       
@@ -25,7 +27,8 @@ jobs:
         run: npm run build -- --configuration production --base-href=/bain_ser_pid_2025_group_2_Lemkadem_Abdeljalil_Final/
         
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
           folder: my-app/dist/app/browser
+          branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}

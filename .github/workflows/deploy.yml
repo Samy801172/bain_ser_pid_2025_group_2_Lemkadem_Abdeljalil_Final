@@ -18,24 +18,16 @@ jobs:
         with:
           node-version: '18'
           
-      - name: List files before
-        run: |
-          pwd
-          ls -la
-          ls -la my-app/
-          
-      - name: Install dependencies
+      - name: Clean install dependencies
         working-directory: ./my-app
-        run: npm install --force
+        run: |
+          rm -rf node_modules
+          npm cache clean --force
+          npm install
         
       - name: Build
         working-directory: ./my-app
-        run: npm run build -- --configuration production --base-href=/bain_ser_pid_2025_group_2_Lemkadem_Abdeljalil_Final/
-        
-      - name: List files after build
-        run: |
-          echo "Content of dist folder:"
-          ls -la my-app/dist/app/browser/
+        run: npm run build -- --configuration production
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

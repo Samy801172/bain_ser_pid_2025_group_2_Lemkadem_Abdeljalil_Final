@@ -17,13 +17,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: my-app/package-lock.json
           
-      - name: Clean install dependencies
+      - name: Install Dependencies
         working-directory: ./my-app
-        run: |
-          rm -rf node_modules
-          npm cache clean --force
-          npm install
+        run: npm ci
         
       - name: Build
         working-directory: ./my-app

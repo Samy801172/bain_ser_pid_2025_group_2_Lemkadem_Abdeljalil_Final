@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["appointment.component.ts"],
+  "sourcesContent": ["\n    .appointments-list {\n      padding: 20px;\n    }\n\n    .appointment-item {\n      background: white;\n      padding: 15px;\n      margin-bottom: 10px;\n      border-radius: 8px;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n    }\n  "],
+  "mappings": ";AACI,CAAA;AACE,WAAA;;AAGF,CAAA;AACE,cAAA;AACA,WAAA;AACA,iBAAA;AACA,iBAAA;AACA,cAAA,EAAA,IAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;",
+  "names": []
+}

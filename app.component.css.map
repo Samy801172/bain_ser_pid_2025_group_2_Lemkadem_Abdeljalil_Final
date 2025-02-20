@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["app.component.ts"],
+  "sourcesContent": ["\n      .app-container {\n        min-height: 100vh; /* Hauteur minimale : pleine hauteur de la fenêtre. */\n        display: flex; /* Flexbox pour structurer le layout. */\n        flex-direction: column; /* Orientation des éléments en colonne. */\n      }\n\n      .main-content {\n        flex: 1; /* Prend tout l'espace disponible. */\n        padding: 20px; /* Espacement interne. */\n        background-color: #f5f6fa; /* Couleur de fond. */\n      }\n\n      :host {\n        /* Styles globaux du composant. */\n        font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n        color: #333; /* Couleur principale du texte. */\n        box-sizing: border-box; /* Bordures incluses dans la taille des éléments. */\n        -webkit-font-smoothing: antialiased; /* Lissage des polices sur WebKit. */\n        -moz-osx-font-smoothing: grayscale; /* Lissage des polices sur macOS. */\n      }\n    "],
+  "mappings": ";;;AACM,CAAA;AACE,cAAA;AACA,WAAA;AACA,kBAAA;;AAGF,CAAA;AACE,QAAA;AACA,WAAA;AACA,oBAAA;;AAGF;AAEE;IAAA,aAAA;IAAA,kBAAA;IAAA,UAAA;IAAA,MAAA;IAAA,SAAA;IAAA,KAAA;IAAA;AACA,SAAA;AACA,cAAA;AACA,0BAAA;AACA,2BAAA;;",
+  "names": []
+}

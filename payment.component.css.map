@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["payment.component.ts"],
+  "sourcesContent": ["\n    /* CSS styles for the PaymentComponent */\n    .payment-buttons {\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      margin-top: 20px;\n    }\n\n    .payment-btn {\n      width: 100%;\n      padding: 12px;\n      border-radius: 6px;\n      border: none;\n      font-weight: 500;\n      cursor: pointer;\n      transition: background-color 0.2s;\n    }\n\n    .primary {\n      background: #4f46e5;\n      color: white;\n    }\n\n    .secondary {\n      background: #6b7280;\n      color: white;\n    }\n  "],
+  "mappings": ";AAEI,CAAA;AACE,WAAA;AACA,kBAAA;AACA,OAAA;AACA,cAAA;;AAGF,CAAA;AACE,SAAA;AACA,WAAA;AACA,iBAAA;AACA,UAAA;AACA,eAAA;AACA,UAAA;AACA,cAAA,iBAAA;;AAGF,CAAA;AACE,cAAA;AACA,SAAA;;AAGF,CAAA;AACE,cAAA;AACA,SAAA;;",
+  "names": []
+}

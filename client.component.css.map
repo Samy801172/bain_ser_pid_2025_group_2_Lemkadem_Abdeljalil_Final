@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/Client/client.component.scss"],
+  "sourcesContent": [".client-container {\r\n  max-width: 400px;\r\n  margin: auto;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-bottom: 20px;\r\n}\r\n\r\ninput {\r\n  margin-bottom: 10px;\r\n  padding: 10px;\r\n  font-size: 16px;\r\n}\r\n\r\nbutton {\r\n  padding: 10px;\r\n  font-size: 16px;\r\n  cursor: pointer;\r\n}\r\n"],
+  "mappings": ";AAAA,CAAA;AACE,aAAA;AACA,UAAA;;AAGF;AACE,WAAA;AACA,kBAAA;AACA,iBAAA;;AAGF;AACE,iBAAA;AACA,WAAA;AACA,aAAA;;AAGF;AACE,WAAA;AACA,aAAA;AACA,UAAA;;",
+  "names": []
+}

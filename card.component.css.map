@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/ui/card/component/card/card.component.scss"],
+  "sourcesContent": [":host{\r\n  width:100%;\r\n}\r\n\r\n.card{\r\n  width:100%;\r\n  max-width:1000px;\r\n  margin:auto;\r\n  background:var(--theme-white);\r\n  border: 1px solid var(--theme-eee);\r\n  padding:1rem;\r\n}\r\n.max-width-1000{\r\n  max-width:1000px;\r\n}\r\n"],
+  "mappings": ";AAAA;AACE,SAAA;;AAGF,CAAA;AACE,SAAA;AACA,aAAA;AACA,UAAA;AACA,cAAA,IAAA;AACA,UAAA,IAAA,MAAA,IAAA;AACA,WAAA;;AAEF,CAAA;AACE,aAAA;;",
+  "names": []
+}

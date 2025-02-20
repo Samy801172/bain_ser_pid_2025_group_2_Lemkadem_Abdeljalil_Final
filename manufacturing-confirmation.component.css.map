@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["manufacturing-confirmation.component.ts"],
+  "sourcesContent": ["\n    .confirmation-container {\n      max-width: 600px; /* Largeur maximale du conteneur */\n      margin: 2rem auto; /* Centrage du conteneur avec une marge */\n      padding: 2rem; /* Espacement interne */\n      background: white; /* Fond blanc */\n      border-radius: 8px; /* Bordures arrondies */\n      box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre légère */\n    }\n    .confirmation-content {\n      margin-top: 2rem; /* Marge au-dessus du contenu */\n      text-align: center; /* Centrage du texte */\n    }\n    h2 {\n      color: #2c3e50; /* Couleur du titre */\n      text-align: center; /* Centrage du titre */\n    }\n    p {\n      margin: 1rem 0; /* Marge autour des paragraphes */\n      line-height: 1.5; /* Hauteur de ligne pour une meilleure lisibilité */\n    }\n  "],
+  "mappings": ";;;AACI,CAAA;AACE,aAAA;AACA,UAAA,KAAA;AACA,WAAA;AACA,cAAA;AACA,iBAAA;AACA,cAAA,EAAA,IAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;AAEF,CAAA;AACE,cAAA;AACA,cAAA;;AAEF;AACE,SAAA;AACA,cAAA;;AAEF;AACE,UAAA,KAAA;AACA,eAAA;;",
+  "names": []
+}

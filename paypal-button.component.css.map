@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["paypal-button.component.ts"],
+  "sourcesContent": ["\n    .paypal-button-container {\n      margin: 20px 0;\n      text-align: center;\n    }\n  "],
+  "mappings": ";AACI,CAAA;AACE,UAAA,KAAA;AACA,cAAA;;",
+  "names": []
+}

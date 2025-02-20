@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/ui/form/component/float-label-input/float-label-input.component.scss"],
+  "sourcesContent": [".input{\r\n  position: relative ;\r\n  .floating-label{\r\n    position: absolute;\r\n    pointer-events: none;\r\n    left: 10px;\r\n    top: 10px;\r\n    transition: all ease .2s;\r\n    height: 10px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;align-items: center;\r\n    font-size: 16px;\r\n    color: var(--theme-label-text);\r\n  }\r\n     .fixed-label{\r\n    font-size: 12px;\r\n    height: 14px;\r\n  }\r\n  .floating-input{\r\n    @extend  .flex-center !optional;\r\n    width: 100%;\r\n    padding: 24px 10px 10px;\r\n    height: var(--var-security-input-heigt);\r\n    background: transparent !important;\r\n    color : var(--theme--input-text);\r\n    border: 1px solid var(--theme-standard-bg);\r\n\r\n\r\n  }\r\n}\r\n"],
+  "mappings": ";AAAA,CAAA;AACE,YAAA;;AACA,CAFF,MAEE,CAAA;AACE,YAAA;AACA,kBAAA;AACA,QAAA;AACA,OAAA;AACA,cAAA,IAAA,KAAA;AACA,UAAA;AACA,WAAA;AACA,kBAAA;AACA,mBAAA;AAAwB,eAAA;AACxB,aAAA;AACA,SAAA,IAAA;;AAEC,CAfL,MAeK,CAAA;AACD,aAAA;AACA,UAAA;;AAEF,CAnBF,MAmBE,CAAA;AAEE,SAAA;AACA,WAAA,KAAA,KAAA;AACA,UAAA,IAAA;AACA,cAAA;AACA,SAAA,IAAA;AACA,UAAA,IAAA,MAAA,IAAA;;",
+  "names": []
+}
